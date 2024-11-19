@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "target": "es2018",
+    "lib": ["es2017", "es2018", "es2022"],
+    "module": "commonjs",
+    "declaration": true,
+    "sourceMap": false,
+    "outDir": "lib",
+    "strict": true,
+    "resolveJsonModule": true,
+    "moduleResolution": "node",
+    "noImplicitAny": false,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "stripInternal": true
+  },
+  "include": ["."]
+}

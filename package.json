@@ -1,0 +1,129 @@
+{
+  "name": "coc-rime-ls",
+  "main": "lib/index.js",
+  "version": "1.0.0",
+  "description": "rime for coc.nvim",
+  "repository": "git@github.com:weirongxu/coc-rime-ls.git",
+  "author": "Weirong Xu <weirongxu.raidou@gmail.com>",
+  "publisher": "weirongxu",
+  "homepage": "https://github.com/weirongxu/coc-rime-ls",
+  "license": "MIT",
+  "keywords": [
+    "coc.nvim",
+    "rime",
+    "rime-ls"
+  ],
+  "engines": {
+    "node": ">=16.18.0",
+    "coc": "^0.0.80"
+  },
+  "scripts": {
+    "build": "tsc"
+  },
+  "files": [
+    "lib"
+  ],
+  "activationEvents": [
+    "*"
+  ],
+  "contributes": {
+    "commands": [
+      {
+        "title": "Toggle Rime",
+        "command": "coc-rime-ls.toggle"
+      }
+    ],
+    "configuration": {
+      "type": "object",
+      "title": "COC Rime LS configuration",
+      "properties": {
+        "coc-rime-ls.statusBar": {
+          "type": "string",
+          "default": "Rime",
+          "description": "在状态栏目显示 Rime 的状态文本"
+        },
+        "coc-rime-ls.command": {
+          "type": "string",
+          "default": "rime_ls",
+          "description": "rime_ls 命令路径"
+        },
+        "rime-ls.enabled": {
+          "type": "boolean",
+          "default": false,
+          "description": "在启动 vim 时开启 rime-ls"
+        },
+        "rime-ls.shared_data_dir": {
+          "type": "string",
+          "description": "rime 公共目录，默认为 '/usr/share/rime-data'",
+          "default": null
+        },
+        "rime-ls.user_data_dir": {
+          "type": "string",
+          "description": "指定用户目录，最好新建一个，默认为 '~/.local/share/rime-ls'",
+          "default": null
+        },
+        "rime-ls.log_dir": {
+          "type": "string",
+          "description": "日志目录，默认为 '~/.cache/rime-ls'",
+          "default": null
+        },
+        "rime-ls.paging_characters": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "这些符号会强制触发一次补全，可用于翻页",
+          "default": [
+            ",",
+            ".",
+            "-",
+            "="
+          ]
+        },
+        "rime-ls.trigger_characters": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "为空表示全局开启",
+          "default": []
+        },
+        "rime-ls.schema_trigger_character": {
+          "type": "string",
+          "description": "当输入此字符串时请求补全会触发 “方案选单”",
+          "default": "&"
+        },
+        "rime-ls.max_tokens": {
+          "type": "number",
+          "description": "大于 0 表示会在删除到这个字符个数的时候，重建所有候选词，而不使用删除字符操作",
+          "default": 0
+        },
+        "rime-ls.always_incomplete": {
+          "type": "boolean",
+          "description": "true 强制补全永远刷新整个列表，而不是使用过滤",
+          "default": false
+        },
+        "rime-ls.preselect_first": {
+          "type": "boolean",
+          "description": "是否默认选择第一个候选项",
+          "default": false
+        },
+        "rime-ls.show_order_in_label": {
+          "type": "boolean",
+          "description": "在候选项的 label 中显示数字",
+          "default": true
+        }
+      }
+    }
+  },
+  "devDependencies": {
+    "@raidou/eslint-config-base": "^2.2.0",
+    "coc.nvim": "0.0.83-next.9",
+    "eslint": "^8.57.1",
+    "prettier": "^3.3.3",
+    "typescript": "^5.6.3"
+  },
+  "dependencies": {
+    "coc-helper": "^0.16.3"
+  }
+}
