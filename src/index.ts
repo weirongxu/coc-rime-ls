@@ -33,20 +33,22 @@ const updateStatusBarItem = (
 
 const createLanguageClient = () => {
   const config = getConfig()
+  const cocConfig = getCocConfig()
+  const initializationOptions = { ...config }
+  logger.prettyPrint(initializationOptions)
+  for (const [key, value] of Object.entries(initializationOptions)) {
+    if (value === null) delete initializationOptions[key]
+  }
+  const command = cocConfig.get<string>('command', 'rime_ls')
   return new LanguageClient(
     'rime-ls',
     'Rime Language Client',
     {
-      command: 'rime_ls',
+      command,
     },
     {
       documentSelector: ['*'],
-      initializationOptions: {
-        ...config,
-        shared_data_dir: config.shared_data_dir || '/usr/share/rime-data', // 指定 rime 共享文件夹
-        user_data_dir: config.user_data_dir || '~/.local/share/rime-ls', // 指定 rime 用户文件夹，最好别与其他 rime 前端共用
-        log_dir: config.log_dir || '~/.local/share/rime-ls', // 指定 rime 日志文件夹
-      },
+      initializationOptions,
     },
   )
 }
