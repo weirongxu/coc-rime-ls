@@ -19,6 +19,7 @@
   },
   "scripts": {
     "build": "tsc",
+    "prepare": "tsc",
     "test": "tsc --noEmit"
   },
   "files": [
