@@ -35,7 +35,6 @@ const createLanguageClient = () => {
   const config = getConfig()
   const cocConfig = getCocConfig()
   const initializationOptions = { ...config }
-  logger.prettyPrint(initializationOptions)
   for (const [key, value] of Object.entries(initializationOptions)) {
     if (value === null) delete initializationOptions[key]
   }
