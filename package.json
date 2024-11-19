@@ -1,7 +1,7 @@
 {
   "name": "coc-rime-ls",
   "main": "lib/index.js",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "rime for coc.nvim",
   "repository": "git@github.com:weirongxu/coc-rime-ls.git",
   "author": "Weirong Xu <weirongxu.raidou@gmail.com>",
