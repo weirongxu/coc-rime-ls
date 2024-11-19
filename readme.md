@@ -13,7 +13,7 @@
 
 使用 `ctrl+t` 开关输入法，并用空格补全
 
-```
+```vim
 function! RimeToggle()
   let rime_enable = CocAction('runCommand', 'coc-rime-ls.toggle')
   if rime_enable
@@ -42,20 +42,20 @@ imap <expr> <C-t> RimeToggle()
 
 配置 rime-ls 路径
 
-```
+```vim
 call coc#config('coc-rime-ls.command', 'rime_ls')
 ```
 
 配置 rime-ls 配置项
 
-```
+```vim
 call coc#config('rime-ls.enabled', v:true)
 call coc#config('rime-ls.shared_data_dir', '/usr/share/rime-data')
 ```
 
 配置 nerdfont 状态栏
 
-```
+```vim
 if nerdfont
   call coc#config('coc-rime-ls.statusBar', '')
 endif
