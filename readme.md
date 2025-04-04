@@ -4,6 +4,7 @@
 
 - 安装 [rime-ls](https://github.com/wlh320/rime-ls) 命令
 - 安装 coc-rime-ls `CocInstall coc-rime-ls`
+- 创建 user data 目录和 log 目录 `mkdir ~/.local/share/rime-ls` `mkdir ~/.cache/rime-ls`
 
 开关输入法
 
